@@ -38,20 +38,13 @@ jobs:
 
     - name: Run unit tests
       run: ./gradlew test 
-
-    - name: Start emulator
-      run: |
-       echo "y" | $ANDROID_HOME/tools/bin/sdkmanager --install "system-images;android-30;google_apis;x86"
-       $ANDROID_HOME/emulator/emulator -avd test -no-audio -no-window -gpu off &
-
-    - name: Wait for emulator
-      run: |
-       adb wait-for-device
-       adb shell input keyevent 82
-
-    - name: Generate JaCoCo report
-      run: ./gradlew jacocoTestReport
-
+      
+    - name: run tests
+      uses: reactivecircus/android-emulator-runner@v2
+      with:
+        api-level: 31
+        script: ./gradlew jacocoTestReport
+        
     - name: Upload coverage reports to Codecov
       uses: codecov/codecov-action@v5
       with:
