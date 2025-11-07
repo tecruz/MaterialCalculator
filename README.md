@@ -1,5 +1,7 @@
 # Material Calculator
 
+[![CI](https://github.com/tecruz/MaterialCalculator/actions/workflows/ci.yml/badge.svg?branch=master)](https://github.com/tecruz/MaterialCalculator/actions/workflows/ci.yml) [![Codecov](https://codecov.io/gh/tecruz/MaterialCalculator/branch/master/graph/badge.svg)](https://codecov.io/gh/tecruz/MaterialCalculator)
+
 A simple calculator app built with Jetpack Compose and Material Design.
 
 ## Features
