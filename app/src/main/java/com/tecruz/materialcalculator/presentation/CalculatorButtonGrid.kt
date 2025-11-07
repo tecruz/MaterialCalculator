@@ -14,7 +14,7 @@ import com.tecruz.materialcalculator.domain.CalculatorAction
 fun CalculatorButtonGrid(
     actions: List<CalculatorUiAction>,
     onAction: (CalculatorAction) -> Unit,
-    modifier: Modifier = Modifier
+    modifier: Modifier = Modifier,
 ) {
     LazyVerticalGrid(
         columns = GridCells.Fixed(4),
@@ -27,9 +27,9 @@ fun CalculatorButtonGrid(
                 CalculatorButton(
                     action = action,
                     modifier = Modifier.aspectRatio(1f),
-                    onClick = { onAction(action.action) }
+                    onClick = { onAction(action.action) },
                 )
             }
-        }
+        },
     )
 }

@@ -25,5 +25,4 @@ class CalculatorScreenTest {
 
         composeRule.onNodeWithText("2.0").assertIsDisplayed()
     }
-
 }

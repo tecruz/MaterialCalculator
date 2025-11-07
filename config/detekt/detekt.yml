@@ -1,5 +1,5 @@
 build:
-  maxIssues: 10
+  maxIssues: 0
   excludeCorrectable: false
 
 config:
@@ -18,7 +18,7 @@ comments:
     active: true
   EndOfSentenceFormat:
     active: true
-    endOfSentenceFormat: '([.?!]){1,3}'
+    endOfSentenceFormat: '([.?!:]){1,3}'
   OutdatedDocumentation:
     active: false
 

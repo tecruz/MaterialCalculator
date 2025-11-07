@@ -17,33 +17,35 @@ import androidx.compose.ui.unit.sp
 fun CalculatorButton(
     action: CalculatorUiAction,
     modifier: Modifier = Modifier,
-    onClick: () -> Unit
+    onClick: () -> Unit,
 ) {
     Box(
-        modifier = modifier
-            .clip(CircleShape)
-            .background(
-                when (action.highlightLevel) {
-                    HighlightLevel.Neutral -> MaterialTheme.colorScheme.surfaceVariant
-                    HighlightLevel.SemiHighlighted -> MaterialTheme.colorScheme.inverseSurface
-                    HighlightLevel.Highlighted -> MaterialTheme.colorScheme.tertiary
-                    HighlightLevel.StronglyHighlighted -> MaterialTheme.colorScheme.primary
-                }
-            )
-            .clickable { onClick() },
-        contentAlignment = Alignment.Center
+        modifier =
+            modifier
+                .clip(CircleShape)
+                .background(
+                    when (action.highlightLevel) {
+                        HighlightLevel.Neutral -> MaterialTheme.colorScheme.surfaceVariant
+                        HighlightLevel.SemiHighlighted -> MaterialTheme.colorScheme.inverseSurface
+                        HighlightLevel.Highlighted -> MaterialTheme.colorScheme.tertiary
+                        HighlightLevel.StronglyHighlighted -> MaterialTheme.colorScheme.primary
+                    },
+                )
+                .clickable { onClick() },
+        contentAlignment = Alignment.Center,
     ) {
-        if(action.text != null) {
+        if (action.text != null) {
             Text(
                 text = action.text,
                 fontSize = 36.sp,
                 textAlign = TextAlign.Center,
-                color = when(action.highlightLevel) {
-                    is HighlightLevel.Neutral -> MaterialTheme.colorScheme.onSurfaceVariant
-                    is HighlightLevel.SemiHighlighted -> MaterialTheme.colorScheme.inverseOnSurface
-                    is HighlightLevel.Highlighted -> MaterialTheme.colorScheme.onTertiary
-                    is HighlightLevel.StronglyHighlighted -> MaterialTheme.colorScheme.onPrimary
-                }
+                color =
+                    when (action.highlightLevel) {
+                        is HighlightLevel.Neutral -> MaterialTheme.colorScheme.onSurfaceVariant
+                        is HighlightLevel.SemiHighlighted -> MaterialTheme.colorScheme.inverseOnSurface
+                        is HighlightLevel.Highlighted -> MaterialTheme.colorScheme.onTertiary
+                        is HighlightLevel.StronglyHighlighted -> MaterialTheme.colorScheme.onPrimary
+                    },
             )
         } else {
             action.content()

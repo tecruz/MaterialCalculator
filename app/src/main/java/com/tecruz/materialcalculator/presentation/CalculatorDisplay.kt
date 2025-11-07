@@ -15,25 +15,26 @@ import androidx.compose.ui.unit.sp
 @Composable
 fun CalculatorDisplay(
     expression: String,
-    modifier: Modifier = Modifier
+    modifier: Modifier = Modifier,
 ) {
     Box(
         modifier = modifier,
-        contentAlignment = Alignment.Center
+        contentAlignment = Alignment.Center,
     ) {
         BasicTextField(
             value = expression,
             onValueChange = {},
-            textStyle = TextStyle(
-                fontSize = 80.sp,
-                color = MaterialTheme.colorScheme.onSecondaryContainer,
-                textAlign = TextAlign.End
-            ),
+            textStyle =
+                TextStyle(
+                    fontSize = 80.sp,
+                    color = MaterialTheme.colorScheme.onSecondaryContainer,
+                    textAlign = TextAlign.End,
+                ),
             maxLines = 1,
             singleLine = true,
             cursorBrush = SolidColor(MaterialTheme.colorScheme.primary),
             readOnly = true,
-            modifier = Modifier.fillMaxWidth()
+            modifier = Modifier.fillMaxWidth(),
         )
     }
 }

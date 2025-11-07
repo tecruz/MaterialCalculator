@@ -5,7 +5,6 @@ import org.junit.Before
 import org.junit.Test
 
 class ExpressionWriterTest {
-
     private lateinit var writer: ExpressionWriter
 
     @Before
@@ -40,5 +39,4 @@ class ExpressionWriterTest {
 
         assertThat(writer.expression).isEqualTo("(6)")
     }
-
 }
