@@ -1,6 +1,8 @@
 # Material Calculator
 
-[![CI](https://github.com/tecruz/MaterialCalculator/actions/workflows/ci.yml/badge.svg?branch=master)](https://github.com/tecruz/MaterialCalculator/actions/workflows/ci.yml) [![codecov](https://codecov.io/gh/tecruz/MaterialCalculator/graph/badge.svg?token=YL60LTZ66L)](https://codecov.io/gh/tecruz/MaterialCalculator)
+[![CI](https://github.com/tecruz/MaterialCalculator/actions/workflows/ci.yml/badge.svg?branch=master)](https://github.com/tecruz/MaterialCalculator/actions/workflows/ci.yml)
+[![Quality Gate Status](https://sonarcloud.io/api/project_badges/measure?project=tecruz_MaterialCalculator&metric=alert_status&token=8e1f3693f25860b1579dadf2e409e50d9b92333b)](https://sonarcloud.io/summary/new_code?id=tecruz_MaterialCalculator)
+[![codecov](https://codecov.io/gh/tecruz/MaterialCalculator/graph/badge.svg?token=YL60LTZ66L)](https://codecov.io/gh/tecruz/MaterialCalculator)
 
 A simple calculator app built with Jetpack Compose and Material Design.
 
