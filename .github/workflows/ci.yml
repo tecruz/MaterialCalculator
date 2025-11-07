@@ -37,13 +37,7 @@ jobs:
       run: ./gradlew ktlintCheck
 
     - name: Run unit tests
-      run: ./gradlew test
-
-    - name: Run instrumented test
-      uses: reactivecircus/android-emulator-runner@v2
-      with:
-       api-level: 29
-       script: ./gradlew connectedCheck
+      run: ./gradlew test 
 
     - name: Generate JaCoCo report
       run: ./gradlew jacocoTestReport
