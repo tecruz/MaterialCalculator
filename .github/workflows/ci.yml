@@ -40,7 +40,13 @@ jobs:
       run: ./gradlew test
 
     - name: Run instrumented tests
-      run: ./gradlew connectedCheck
+      uses: reactivecircus/android-emulator-runner@v2
+      with:
+        api-level: 31
+        target: google_apis
+        arch: x86_64
+        emulator-options: -no-window -no-audio -gpu swiftshader_indirect
+        script: ./gradlew connectedCheck --no-daemon -Pandroid.testInstrumentationRunnerArguments.notAnnotation=androidx.test.filters.Suppress
 
     - name: Generate JaCoCo report
       run: ./gradlew jacocoTestReport
