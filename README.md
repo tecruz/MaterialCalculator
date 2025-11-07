@@ -10,8 +10,10 @@ A simple calculator app built with Jetpack Compose and Material Design.
 
 ## Screenshots
 
-![screenshot_phone.png](screenshots/screenshot_phone.png)
-![screenshot_tablet.png](screenshots/screenshot_tablet.png)
+<p align="center">
+  <img src="screenshots/screenshot_phone.png" width="250" />
+  <img src="screenshots/screenshot_tablet.png" width="500" />
+</p>
 
 ## Architecture
 
