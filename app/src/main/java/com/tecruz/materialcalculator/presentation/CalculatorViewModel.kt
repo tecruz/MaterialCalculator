@@ -8,9 +8,8 @@ import com.tecruz.materialcalculator.domain.CalculatorAction
 import com.tecruz.materialcalculator.domain.ExpressionWriter
 
 class CalculatorViewModel(
-    private val writer: ExpressionWriter = ExpressionWriter()
-): ViewModel() {
-
+    private val writer: ExpressionWriter = ExpressionWriter(),
+) : ViewModel() {
     var expression by mutableStateOf("")
         private set
 
