@@ -2,6 +2,9 @@ plugins {
     alias(libs.plugins.android.application)
     alias(libs.plugins.kotlin.android)
     alias(libs.plugins.kotlin.compose)
+    alias(libs.plugins.detekt)
+    alias(libs.plugins.ktlint)
+    id("jacoco")
 }
 
 android {
@@ -26,6 +29,9 @@ android {
                 "proguard-rules.pro"
             )
         }
+        debug {
+            enableUnitTestCoverage = true
+        }
     }
     compileOptions {
         sourceCompatibility = JavaVersion.VERSION_11
@@ -36,6 +42,9 @@ android {
     }
     buildFeatures {
         compose = true
+    }
+    lint {
+        abortOnError = true
     }
 }
 
@@ -61,4 +70,13 @@ dependencies {
     testImplementation(libs.androidx.core.test)
     testImplementation(libs.androidx.core.testing)
     testImplementation(libs.truth)
+
+    // Detekt
+    detektPlugins(libs.detekt.formatting)
 }
+
+detekt {
+    config.setFrom(files("$rootDir/config/detekt/detekt.yml"))
+}
+
+apply(from = "../jacoco.gradle")
