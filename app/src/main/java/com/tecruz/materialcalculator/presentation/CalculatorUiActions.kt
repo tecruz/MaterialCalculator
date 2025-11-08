@@ -1,7 +1,7 @@
 package com.tecruz.materialcalculator.presentation
 
 import androidx.compose.material.icons.Icons
-import androidx.compose.material.icons.automirrored.filled.ArrowBack
+import androidx.compose.material.icons.automirrored.filled.Backspace
 import androidx.compose.material3.Icon
 import androidx.compose.material3.MaterialTheme
 import com.tecruz.materialcalculator.domain.CalculatorAction
@@ -103,7 +103,7 @@ val calculatorActions =
             text = null,
             content = {
                 Icon(
-                    imageVector = Icons.AutoMirrored.Filled.ArrowBack,
+                    imageVector = Icons.AutoMirrored.Filled.Backspace,
                     contentDescription = null,
                     tint = MaterialTheme.colorScheme.onSurfaceVariant,
                 )
