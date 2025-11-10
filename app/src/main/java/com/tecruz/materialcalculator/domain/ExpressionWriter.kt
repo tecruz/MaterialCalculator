@@ -25,8 +25,22 @@ class ExpressionWriter {
                 expression += action.number
             }
             is CalculatorAction.Op -> {
-                if (canEnterOperation(action.operation)) {
-                    expression += action.operation.symbol
+                val operation = action.operation
+                when {
+                    expression.last() in operationSymbols -> {
+                        // Replace the last operator, but not a unary + or - at the start
+                        if (expression.length > 1) {
+                            expression = expression.dropLast(1) + operation.symbol
+                        }
+                    }
+                    expression.isEmpty() || expression.last() == '(' -> {
+                        if (operation in listOf(Operation.ADD, Operation.SUBTRACT)) {
+                            expression += operation.symbol
+                        }
+                    }
+                    else -> {
+                        expression += operation.symbol
+                    }
                 }
             }
             CalculatorAction.Parentheses -> {
@@ -66,12 +80,5 @@ class ExpressionWriter {
         return !expression.takeLastWhile {
             it in "0123456789."
         }.contains(".")
-    }
-
-    private fun canEnterOperation(operation: Operation): Boolean {
-        if (operation in listOf(Operation.ADD, Operation.SUBTRACT)) {
-            return expression.isEmpty() || expression.last() in "$operationSymbols()0123456789"
-        }
-        return expression.isNotEmpty() || expression.last() in "0123456789)"
     }
 }

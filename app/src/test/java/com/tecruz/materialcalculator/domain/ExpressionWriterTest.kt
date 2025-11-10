@@ -39,4 +39,62 @@ class ExpressionWriterTest {
 
         assertThat(writer.expression).isEqualTo("(6)")
     }
+
+    @Test
+    fun `Clear action clears the expression`() {
+        writer.processAction(CalculatorAction.Number(5))
+        writer.processAction(CalculatorAction.Op(Operation.ADD))
+        writer.processAction(CalculatorAction.Number(4))
+        writer.processAction(CalculatorAction.Clear)
+
+        assertThat(writer.expression).isEqualTo("")
+    }
+
+    @Test
+    fun `Delete action removes last character`() {
+        writer.processAction(CalculatorAction.Number(5))
+        writer.processAction(CalculatorAction.Op(Operation.ADD))
+        writer.processAction(CalculatorAction.Number(4))
+
+        writer.processAction(CalculatorAction.Delete)
+        assertThat(writer.expression).isEqualTo("5+")
+
+        writer.processAction(CalculatorAction.Delete)
+        assertThat(writer.expression).isEqualTo("5")
+
+        writer.processAction(CalculatorAction.Delete)
+        assertThat(writer.expression).isEqualTo("")
+    }
+
+    @Test
+    fun `Decimal action is handled correctly`() {
+        writer.processAction(CalculatorAction.Number(5))
+        writer.processAction(CalculatorAction.Decimal)
+        writer.processAction(CalculatorAction.Number(3))
+        assertThat(writer.expression).isEqualTo("5.3")
+
+        // Second decimal should be ignored
+        writer.processAction(CalculatorAction.Decimal)
+        assertThat(writer.expression).isEqualTo("5.3")
+    }
+
+    @Test
+    fun `Operator is replaced if last character is operator`() {
+        writer.processAction(CalculatorAction.Number(5))
+        writer.processAction(CalculatorAction.Op(Operation.ADD))
+        assertThat(writer.expression).isEqualTo("5+")
+
+        writer.processAction(CalculatorAction.Op(Operation.MULTIPLY))
+        assertThat(writer.expression).isEqualTo("5x")
+    }
+
+    @Test
+    fun `Calculate action performs calculation`() {
+        writer.processAction(CalculatorAction.Number(5))
+        writer.processAction(CalculatorAction.Op(Operation.ADD))
+        writer.processAction(CalculatorAction.Number(5))
+        writer.processAction(CalculatorAction.Calculate)
+
+        assertThat(writer.expression).isEqualTo("10.0")
+    }
 }
