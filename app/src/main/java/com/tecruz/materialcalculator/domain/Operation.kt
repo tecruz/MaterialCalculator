@@ -10,7 +10,6 @@ enum class Operation(val symbol: Char) {
 
 val operationSymbols = Operation.entries.map { it.symbol }.joinToString("")
 
-fun operationFromSymbol(symbol: Char): Operation {
-    return Operation.entries.find { it.symbol == symbol }
+fun operationFromSymbol(symbol: Char): Operation =
+    Operation.entries.find { it.symbol == symbol }
         ?: throw IllegalArgumentException("Invalid symbol")
-}
