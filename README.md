@@ -28,21 +28,13 @@ The app follows a simple MVI-like architecture with two main layers:
 
 ## Quality Assurance
 
-This project is configured with a suite of tools to ensure code quality, consistency, and stability.
+This project is configured with a comprehensive suite of tools to ensure code quality, consistency, and stability.
 
-- **CI/CD**: A [GitHub Actions](https://github.com/tecruz/MaterialCalculator/actions/workflows/ci.yml) workflow runs on every push and pull request to:
-    - Build the project.
-    - Run [Detekt](https://detekt.dev/) for static analysis.
-    - Run [ktlint](https://ktlint.github.io/) for code style checking.
-    - Run unit and instrumented tests.
-    - Generate a combined test coverage report with [JaCoCo](https://www.eclemma.org/jacoco/).
-    - Upload the coverage report to [Codecov](https://codecov.io/).
-
-- **Static Analysis**: [Detekt](https://detekt.dev/) is used to analyze the Kotlin code for potential bugs, code smells, and complexity issues.
-
-- **Code Style**: [ktlint](https://ktlint.github.io/) ensures a consistent and readable code style across the entire project.
-
-- **Test Coverage**: Test coverage for both unit and instrumented tests is generated using [JaCoCo](https://www.eclemma.org/jacoco/) and uploaded to [Codecov](https://codecov.io/) for visualization and tracking.
+- **CI/CD**: A [GitHub Actions](https://github.com/tecruz/MaterialCalculator/actions/workflows/ci.yml) workflow runs on every push and pull request. It includes:
+    - **Build & Test**: Assembles the debug build and runs unit tests.
+    - **Static Analysis**: Uses [Detekt](https://detekt.dev/) for static code analysis and [ktlint](https://ktlint.github.io/) for code style checking.
+    - **Instrumented Tests**: Runs instrumented tests on an Android emulator using a matrix strategy. It also caches the emulator state to speed up test runs.
+    - **Test Coverage**: Generates a combined test coverage report for both unit and instrumented tests using [JaCoCo](https://www.eclemma.org/jacoco/) and uploads it to [Codecov](https://codecov.io/).
 
 - **Automated Dependency Updates**: [Dependabot](https://docs.github.com/en/code-security/dependabot) is configured to automatically create pull requests for outdated dependencies, helping to keep the project secure and up-to-date.
 
