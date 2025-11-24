@@ -13,7 +13,7 @@ composeBom = "2025.11.00"
 lifecycleViewmodelCompose = "2.9.4"
 truth = "1.4.5"
 detekt = "1.23.8"
-ktlint = "13.1.0"
+ktlint = "14.0.1"
 
 [libraries]
 androidx-core-test = { module = "androidx.test:core", version.ref = "coreTest" }
